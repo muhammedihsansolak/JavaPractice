@@ -148,7 +148,24 @@ public class Tasks {
 
         System.out.println(Arrays.toString(result));
 
+        System.out.println("--------------------------");
 
+        //**** Stream.iterate() ****
+
+        Stream.iterate( 0,n -> n+2)
+                .limit(5)
+                .forEach(System.out::println);
+
+        //Fibonacci Series
+
+        int firstNum = 0, secondNum = 1;
+        System.out.print(firstNum+" "+secondNum);
+        for (int i = 0; i <= 20 ; i++) {
+            int nextNum = firstNum+secondNum;
+            System.out.print(" "+nextNum);
+            firstNum = secondNum;
+            secondNum = nextNum;
+        }
 
 
     }
