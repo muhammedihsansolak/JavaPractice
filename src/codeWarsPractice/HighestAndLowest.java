@@ -17,8 +17,8 @@ public class HighestAndLowest {
     }
 
     public static String highAndLow2(String numbers) {
-        Object[] arr = Arrays.stream(numbers.split(" "))
-                .map(Integer::parseInt)
+        int[] arr = Arrays.stream(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
                 .sorted()
                 .toArray();
 
