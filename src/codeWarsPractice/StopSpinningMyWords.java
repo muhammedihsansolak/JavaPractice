@@ -4,6 +4,13 @@ public class StopSpinningMyWords {
     public static void main(String[] args) {
         String str = "Hey fellow warriors";
         System.out.println(spinWords(str));
+
+        //join() method ->
+        String str1 = "Muhammed",
+                str2 = "Solak";
+
+        System.out.println(String.join(" ", str1, str2));
+
     }
 
 
