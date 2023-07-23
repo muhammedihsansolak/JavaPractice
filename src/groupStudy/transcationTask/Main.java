@@ -82,7 +82,10 @@ public class Main {
 
         System.out.println(result6);
 
-        //How would you count the number of dishes in a stream using the map and reduce methods?
+       transactions.stream()
+                .map( p-> p.getValue()+" "+p.getYear())
+               .forEach(System.out::println);
+
 
 
 
