@@ -1,10 +1,7 @@
 package codeWarsPractice;
 
 public class GiveMeADiamond {
-
-    public static void main(String[] args) {
-        System.out.println(print(3));
-    }
+    
 
 
     public static String createDiamond(int size) {
