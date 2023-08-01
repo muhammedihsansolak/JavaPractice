@@ -1,11 +1,13 @@
 package cydeoAlgorithmTasks;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FrequencyOfArrayElements {
     public static void main(String[] args) {
         String[] arr = {"Apple", "Banana", "Banana", "Cherry", "Apple"};
         System.out.println(frequency(arr));
+        System.out.println(frequency2(arr));
     }
 
     public static Map<String, Integer> frequency(String[] arr) {
@@ -16,6 +18,11 @@ public class FrequencyOfArrayElements {
             map.put( each , Collections.frequency( list ,each ));
         }
        return map;
+    }
+
+    public static Map<String, Long> frequency2(String[] arr){
+        return Arrays.stream(arr)
+                .collect(Collectors.groupingBy(p -> p ,  Collectors.counting() ));
     }
 
 }
