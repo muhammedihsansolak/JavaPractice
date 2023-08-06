@@ -3,18 +3,33 @@ package codeWarsPractice;
 import java.util.Arrays;
 
 public class SumOfParts {
-//todo
-//    public static void main(String[] args) {
-//        int[] arr = {0, 1, 3, 6, 10};
-//        System.out.println(Arrays.toString(sumParts(arr)));
-//        System.out.println(Arrays.toString(sumParts2(arr)));
-//    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 3, 6, 10};
+        System.out.println(Arrays.toString(sumParts(arr)));
+        System.out.println(Arrays.toString(sumParts2(arr)));
+    }
 
     public static int[] sumParts(int[] ls) { //---> too slow
         int[] arr = new int[ls.length + 1];
         for (int j = 0; j < ls.length; j++) {
             int sum = Arrays.stream(ls).skip(j).reduce(0, Integer::sum);
             arr[j] = sum;
+        }
+        return arr;
+    }
+
+    public static int[] sumParts2(int[] ls) {
+        int[] arr = new int[ls.length + 1];
+        int sum = 0;
+        for (int each : ls) {
+            sum += each;
+        }
+        int i = 0;
+        for (int j = 0; j < ls.length; j++) {
+            arr[i] = sum;
+            sum -= ls[i];
+            i++;
         }
         return arr;
     }
