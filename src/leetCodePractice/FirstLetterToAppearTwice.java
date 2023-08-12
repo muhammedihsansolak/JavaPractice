@@ -17,6 +17,15 @@ public class FirstLetterToAppearTwice {
         }
         return ' ';
     }
+
+    public static char firstLetterAppearTwice(String str){
+        Set<Character> set = new HashSet<>();
+        for (char each : str.toCharArray()) {
+            if ( !set.add(each) ) return each;
+        }
+        return ' ';
+    }
+
 }
 /*
 Given a string s consisting of lowercase English letters, return the first letter to appear twice.

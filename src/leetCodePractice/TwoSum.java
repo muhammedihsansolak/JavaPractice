@@ -36,6 +36,18 @@ public class TwoSum {
         return new int[]{};
     }
 
+    public static int[] twoSum3(int[] arr , int target){
+        //  element     index
+        Map<Integer , Integer> map = new HashMap<>();
 
+        for (int i = 0; i < arr.length; i++) {
+            map.put( arr[i], i );
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int match = target - arr[i] ;
+            if (map.containsKey(match)) return new int[]{ i , map.get(match)};
+        }
+        return new int[]{};
+    }
 
 }

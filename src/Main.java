@@ -4,17 +4,24 @@ import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * main class
- */
 
 public class Main {
     public static void main(String[] args) {
-        BigDecimal num = BigDecimal.valueOf(123.36167);
-        System.out.println(num.setScale(3, RoundingMode.FLOOR));
-        System.out.println(num);
-
+        String pattern = "aaba";
+        String str = "fish fish horse horse";
+        System.out.println(wordPattern(pattern, str));
     }
+
+    public static boolean wordPattern(String pattern, String str) {
+        String[] split = str.split(" ");
+        if (pattern.length() != split.length) return false;
+        Map map = new HashMap<>();
+        for (int i = 0; i < split.length; i++) {
+            if ( map.put(pattern.charAt(i) , i) != map.put(split[i] , i) ) return false;
+        }
+        return true;
+    }
+
 }
 
 
