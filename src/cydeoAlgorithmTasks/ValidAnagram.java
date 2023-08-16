@@ -7,6 +7,7 @@ public class ValidAnagram {
         String str1 = "horse!é", str2 = "!éeshor";
 
         System.out.println(validAnagram(str1, str2));
+        System.out.println(validAnagram2(str1, str2));
     }
 
     public static boolean validAnagram(String s, String t){
@@ -18,6 +19,13 @@ public class ValidAnagram {
         t = new String(arrT);
 
         return s.equals(t);
+    }
+    public static boolean validAnagram2(String s, String t){
+        char[] arrS = s.toCharArray();
+        char[] arrT = t.toCharArray();
+        Arrays.sort(arrS);
+        Arrays.sort(arrT);
+        return Arrays.equals(arrS, arrT);
     }
 }
 /*
