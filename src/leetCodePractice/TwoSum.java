@@ -8,6 +8,7 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] arr = {2,7,9,11};
         System.out.println(Arrays.toString(twoSum2(arr, 9)));
+        System.out.println(Arrays.toString(twoSum4(arr, 9)));
     }
 
     public static int[] twoSum(int[] nums, int target) {
@@ -46,6 +47,30 @@ public class TwoSum {
         for (int i = 0; i < arr.length; i++) {
             int match = target - arr[i] ;
             if (map.containsKey(match)) return new int[]{ i , map.get(match)};
+        }
+        return new int[]{};
+    }
+
+    public static int[] twoSum4 (int[] arr, int target){
+
+        int left = 0;
+        int right = arr.length-1;
+        //create a map to store elements and indices
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            //      element index
+            map.put( arr[i] , i);
+        }
+
+        while (left < right){
+
+            if (arr[left] + arr[right] == target){ //if it is match with target
+                return new int[]{ map.get( arr[left] ) ,map.get( arr[right] ) }; //return indices from map
+            } else if (arr[left] + arr[right] < target) {//if it is small, go right or vice versa
+                left++;
+            } else {
+                right--;
+            }
         }
         return new int[]{};
     }

@@ -18,6 +18,7 @@ public class WordPattern {
         Map index = new HashMap();
         for (Integer i=0; i<words.length; ++i) {
             //a,0 cat,0
+            //put method returns the value if any duplicated key want to add map. Returns old element's value
             if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
                 return false;
         }
