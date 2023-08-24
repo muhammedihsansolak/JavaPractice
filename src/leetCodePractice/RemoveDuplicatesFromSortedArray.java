@@ -9,8 +9,11 @@ public class RemoveDuplicatesFromSortedArray {
         System.out.println(removeDuplicates(arr));
     }
 
+    /**
+     * // I retrieve each element and checks with previous (i-1) element. If they are some it continues. If not it puts element in head of the array. Head of the array is kept tracked by j
+     */
+
     public static int removeDuplicates(int[] nums) {
-        // i retrieve each element and checks with previous (i-1) element. If they are some it continue. If not it puts element in head of the array. Head of the array is kept tracked by j
         int j = 1;
         for(int i = 1; i < nums.length; i++){
             if(nums[i] != nums[i - 1]){
