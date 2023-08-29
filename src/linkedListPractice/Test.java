@@ -22,9 +22,7 @@ public class Test {
 
         System.out.println( Node.iterativeValues(a) );
 
-        System.out.println("----------------");
 
-        System.out.println(Node.recursiveValues(a));
 
     }
 }
