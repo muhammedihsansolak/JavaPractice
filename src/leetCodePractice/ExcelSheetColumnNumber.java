@@ -6,7 +6,7 @@ import java.util.Map;
 public class ExcelSheetColumnNumber {
 
     public static void main(String[] args) {
-        System.out.println(titleToNumber("FXSHRXW"));
+        System.out.println(titleToNumber("ABC"));
     }
 
     /**
@@ -21,7 +21,7 @@ public class ExcelSheetColumnNumber {
             hashMap.put( ch , ch-'A'+1  );
             ch++;
         }
-        //calculating based on parameter. every time add each value then multiply with 26 since 26 is our base
+        //calculating based on parameter. every time first add each value then multiply with 26 since 26 is our base
         int count = 0;
         for (int i = 0; i < columnTitle.length(); i++) {
             count *=26;
@@ -41,7 +41,25 @@ public class ExcelSheetColumnNumber {
             return sum;
         }
 
+    public int titleToNumber3(String s) {
 
+        return s.chars()
+                .map(p -> p-64)
+                .reduce(0,(a,b) -> 26*a+b);
+
+    }
+
+    public int titleToNumber4(String s) {
+
+        int total = 0;
+        int multiplier = 1;
+
+        for (int i = s.length()-1; i >=0 ; i--) {
+            total += (s.charAt(i)-'A'+1) * multiplier;
+            multiplier *= 26;
+        }
+        return total;
+    }
 
 
 }

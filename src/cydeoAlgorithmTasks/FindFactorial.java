@@ -6,10 +6,16 @@ public class FindFactorial {
 
     public static void main(String[] args) {
         System.out.println(factorial(5));
+        System.out.println(factorial2(5));
     }
 
     public static int factorial(int num){
         return IntStream.rangeClosed(1,num)
+                .reduce( (a,b) -> a*b ).getAsInt();
+    }
+
+    public static int factorial2(int num){
+        return IntStream.range(1,num+1)
                 .reduce( (a,b) -> a*b ).getAsInt();
     }
 

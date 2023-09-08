@@ -7,37 +7,19 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-//                  3,5,11,15,16
-        int[] arr = {16,3,11,5,15};
-        int target = 8;
-        System.out.println(Arrays.toString(twoSum(arr, target)));
-        System.out.println(Arrays.toString(twoSum2(arr, target)));
-    }
 
-    public static int[] twoSum2(int[] arr, int target){
+        List list = new ArrayList<>();
 
-        Map<Integer,Integer> map = new HashMap<>();
+        list.add(15);
+        list.add("String");
+        list.add(100L);
 
-        for (int i = 0; i < arr.length; i++) {
-            map.put( arr[i] , i );
-        }
-        Arrays.sort(arr);
-        int left = 0; //5
-        int right = arr.length -1; //16
+        list.forEach(p -> System.out.println(p));
 
-        while (left < right){
+        Set set = new HashSet<>(list);
 
-            if (arr[left] + arr[right] == target){
-                return new int[]{  map.get( arr[left] ) , map.get(arr[right]) };
-            } else if ( arr[left] + arr[right] < target) {
-                left++;
-            } else {
-                right--;
-            }
+        System.out.println(set);
 
-
-        }
-        return new int[]{};
     }
 
 
