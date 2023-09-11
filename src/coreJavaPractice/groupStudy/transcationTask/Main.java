@@ -1,4 +1,4 @@
-package groupStudy.transcationTask;
+package coreJavaPractice.groupStudy.transcationTask;
 
 import java.util.*;
 import java.util.stream.Collectors;

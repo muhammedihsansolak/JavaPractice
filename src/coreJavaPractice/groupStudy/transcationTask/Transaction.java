@@ -1,4 +1,4 @@
-package groupStudy.transcationTask;
+package coreJavaPractice.groupStudy.transcationTask;
 
 public class Transaction {
 

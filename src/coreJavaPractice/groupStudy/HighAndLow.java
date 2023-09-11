@@ -1,4 +1,4 @@
-package groupStudy;
+package coreJavaPractice.groupStudy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

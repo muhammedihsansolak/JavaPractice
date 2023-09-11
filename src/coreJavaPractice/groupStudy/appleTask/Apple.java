@@ -1,4 +1,4 @@
-package groupStudy.appleTask;
+package coreJavaPractice.groupStudy.appleTask;
 
 public class Apple {
     private int weight;

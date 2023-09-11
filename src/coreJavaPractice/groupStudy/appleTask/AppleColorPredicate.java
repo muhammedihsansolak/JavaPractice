@@ -1,4 +1,4 @@
-package groupStudy.appleTask;
+package coreJavaPractice.groupStudy.appleTask;
 
 public class AppleColorPredicate implements ApplePredicate{
     @Override

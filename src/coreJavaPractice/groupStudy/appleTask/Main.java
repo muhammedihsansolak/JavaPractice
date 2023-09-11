@@ -1,8 +1,7 @@
-package groupStudy.appleTask;
+package coreJavaPractice.groupStudy.appleTask;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class Main {

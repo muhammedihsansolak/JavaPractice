@@ -1,4 +1,4 @@
-package groupStudy;
+package coreJavaPractice.groupStudy;
 
 public class StringPractice {
     public static void main(String[] args) {

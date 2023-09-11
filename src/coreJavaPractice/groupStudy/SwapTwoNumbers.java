@@ -1,4 +1,4 @@
-package groupStudy;
+package coreJavaPractice.groupStudy;
 
 public class SwapTwoNumbers {
     public static void main(String[] args) {
