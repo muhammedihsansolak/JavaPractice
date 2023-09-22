@@ -15,17 +15,34 @@ public class PlusOne {
     public static int[] plusOne(int[] digits) {
         //iterate the loop from last
         for (int i = digits.length -1; i >= 0; i--) {
-            //last digit is less than 9, add 1 to it and return the array
+            //if last digit is less than 9, add 1 to it and return the array
             if (digits[i] < 9){
                 digits[i]++;
                 return digits;
             }else // if last digit is 9, set last digit to 0 and go next iteration until one of the digit is less than 9
                 digits[i] = 0;
         }
-        //if all remaining elements are not smaller than 9 it means we have 9999999..... We need a array which is 1 element larger than previous one. first element must be 1
+        //if all remaining elements are not smaller than 9 it means we have 9999999..... We need a array which is 1 element larger than previous one and first element must be 1
         int[] arr = new int[digits.length +1];
         arr[0] = 1;
         return arr;
+    }
+
+
+    public static int[] plusOne2(int[] arr){
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] < 9){
+                arr[i] += 1;
+                return arr;
+            } else {
+                arr[i] = 0;
+            }
+        }
+
+        int[] result = new int[arr.length+1];
+        result[0] = 1;
+        return result;
     }
 
 
