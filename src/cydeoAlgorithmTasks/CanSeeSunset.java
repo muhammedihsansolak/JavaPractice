@@ -37,6 +37,30 @@ public class CanSeeSunset {
     }
 
 
+    public static List<Integer> sunsetViews2(int[] buildings, String direction) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        if (direction.equalsIgnoreCase("east")){
+            for (int i = 0; i < buildings.length; i++) {
+                while (!stack.isEmpty() && buildings[i] >= buildings[ stack.peek() ] ){
+                    stack.pop();
+                }
+                stack.push(i);
+            }
+        }else {
+            for (int i = buildings.length - 1; i >= 0; i--) {
+                while (!stack.isEmpty() && buildings[i] >= buildings[ stack.peek() ]){
+                    stack.pop();
+                }
+                stack.push(i);
+            }
+        }
+        return new ArrayList<>(stack);
+    }
+
+
+
 }
 /*
 Given an array of buildings and a direction that all of the buildings face, return an array of the indices of the buildings that can
