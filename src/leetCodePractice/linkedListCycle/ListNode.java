@@ -1,9 +1,6 @@
 package leetCodePractice.linkedListCycle;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ListNode {
     int val;
@@ -32,6 +29,16 @@ public class ListNode {
         return false;
     }
 
+    public boolean hasCycle2(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+
+        ListNode current = head;
+        while (current != null) {
+            if (!set.add(current)) return true;
+            current = current.next;
+        }
+        return false;
+    }
 
 /*
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
