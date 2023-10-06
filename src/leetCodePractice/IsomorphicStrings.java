@@ -14,7 +14,7 @@ public class IsomorphicStrings {
 
     }
     /**
-     * I putted every char in different maps. If any char added before, put method extracts the previous key's value. If extracted values are not some it means they are not isomorphic.
+     * I putted every char in different maps. If any char added before, put method extracts the previous key's value. If extracted values are not same it means they are not isomorphic.
      * Within the loop, the code checks if the result of mapS.put(s.charAt(i), i) is equal to the result of mapT.put(t.charAt(i), i). The put method of a HashMap returns the previous value associated with the specified key or null if there was no mapping for the key. In this case, it's being used to store the index of the current character.
      */
     public static boolean isIsomorphic(String s, String t) {
@@ -32,20 +32,32 @@ public class IsomorphicStrings {
      * After iterating through all characters in the strings, if no differences have been found between the mappings, the method returns true, indicating that the strings are isomorphic.
      */
     public boolean isIsomorphic2(String s, String t) {
-        if(s.length() != t.length())
-            return false;
 
         int[] arr = new int[256];
         int[] arr2 = new int[256];
 
-        for(int idx = 0; idx < s.length(); idx++){
+        for(int i = 0; i < s.length(); i++){
 
-            if(arr[s.charAt(idx)] != arr2[t.charAt(idx)]) //If ASCII values are not same, it means there are different number of characters inside strings
+            if(arr[s.charAt(i)] != arr2[t.charAt(i)]) //If ASCII values are not same, it means there are different number of characters inside strings
                 return false;
 
             // Insert each character of string s and t to maps
-            arr[s.charAt(idx)] = idx + 1; //ASCII values increases
-            arr2[t.charAt(idx)] = idx + 1;
+            arr[s.charAt(i)] = i + 1; //ASCII values increases
+            arr2[t.charAt(i)] = i + 1;
+        }
+        return true;
+    }
+
+
+    public static boolean isIsomorphic3(String s, String t) {
+
+        Map<Character,Integer> mapS = new HashMap<>();
+        Map<Character,Integer> mapT = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            Integer sOutput = mapS.put(s.charAt(i), i);
+            Integer tOutput = mapT.put(t.charAt(i), i);
+            if (!Objects.equals(sOutput,tOutput) ) return false;
         }
         return true;
     }

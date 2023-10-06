@@ -1,6 +1,6 @@
 package leetCodePractice;
 
-public class MergeAlternately {
+public class MergeStringsAlternately {
 
     public static void main(String[] args) {
 
@@ -34,6 +34,37 @@ public class MergeAlternately {
         return result;
     }
 
+    public static String mergeAlternately2(String word1, String word2) {
+
+        String result = "";
+        int p1 = 0;
+        int p2 = 0;
+
+        while (p1 < word1.length() && p2 < word2.length()){
+            result += word1.charAt(p1++);
+            result += word2.charAt(p2++);
+        }
+        if ( p1 != word1.length() ) result += word1.substring(p1);
+        else if ( p2 != word2.length() ) result += word2.substring(p2);
+
+
+        return result;
+    }
+
+    public String mergeAlternately3(String word1, String word2) {
+        String result = "";
+        int i = 0;
+        while (i < word1.length() || i < word2.length()) {
+            if (i < word1.length()) {
+                result+= word1.charAt(i);
+            }
+            if (i < word2.length()) {
+                result+=word2.charAt(i);
+            }
+            i++;
+        }
+        return result;
+    }
 
 }
 /*

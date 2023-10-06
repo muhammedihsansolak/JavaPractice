@@ -10,6 +10,7 @@ public class IsSubsequence {
         String t = "abcde";
 
         System.out.println(isSubsequence(s, t));
+        System.out.println(isSubsequence2(s, t));
     }
 
     /**
@@ -23,7 +24,14 @@ public class IsSubsequence {
             j++;
         }
         return i == s.length();
+    }
+//not works properly
+    public static boolean isSubsequence2(String s, String t) {
 
+        String str = Arrays.stream(t.split(""))
+                .filter(s::contains)
+                .collect(Collectors.joining());
+        return s.equals(str);
     }
 
 

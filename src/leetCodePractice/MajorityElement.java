@@ -6,25 +6,40 @@ public class MajorityElement {
 
     public static void main(String[] args) {
 
-        int[] nums = {2,2,1,1,1,2,2};
+        int[] nums = {5,6,5,6,6,5,5,6,5,6,5,5,5,6,6,6};
         System.out.println(majorityElement(nums));
 
 
     }
 
     public static int majorityElement(int[] nums) {
-        int majority = nums[0];
+        int majority = nums[0]; //assume first element is majority element
         int count = 1;
 
-        for (int i = 1; i < nums.length; i++) {
-            if (count == 0) {
+        for (int i = 1; i < nums.length; i++) { //start iterating from second element since we assigned first to majority element
+            if (count == 0) {//if count hit zero change majority element and set count to 1
                 majority = nums[i];
                 count = 1;
             } else if (nums[i] == majority) {
                 count++;
-            } else {
+            } else {//if there is another element reduce count
                 count--;
             }
+        }
+        return majority;
+    }
+
+    public static int majorityElement2(int[] nums) {
+        int majority = nums[0];
+        int count = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (count == 0){
+                majority = nums[i];
+                count=1;
+            }
+            else if (nums[i] == majority) count++;
+            else count--;
         }
         return majority;
     }

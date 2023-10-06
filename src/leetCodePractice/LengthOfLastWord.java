@@ -12,14 +12,32 @@ public class LengthOfLastWord {
 
 
     }
+
+    public static int lengthOfLastWord(String s) {
+        s = s.trim();
+        s = s.substring(s.lastIndexOf(" ")+1);
+        return s.chars().filter(Character::isLetter).toArray().length;
+    }
     
 
     public static int lengthOfLastWord2(String s) {
         s = s.trim();
         s = s.substring(s.lastIndexOf(" ")+1);
         char[] arr = s.toCharArray();
-        IntStream stream = new String(arr).chars().filter(p -> Character.isLetter(p));
+        IntStream stream = new String(arr).chars().filter(Character::isLetter);
         return stream.toArray().length;
+    }
+
+    public static int lengthOfLastWord3(String s) {
+        int size = 0;
+
+        for (int i = s.length()-1; i >= 0 ; i--) {
+            if (s.charAt(i) != ' ') size++;
+            else {
+                if (size > 0) return size;
+            }
+        }
+        return size;
     }
 
 

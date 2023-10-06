@@ -30,5 +30,34 @@ public class LongestCommonPrefix {
         }
         return c == 0 ? "" : first.substring(0, c);
     }
-}
 
+
+    public static String longestCommonPrefix2(String[] strs) {
+        if (strs.length == 0) return "";
+
+        Arrays.sort(strs);
+        int i = 0;
+        String firstWord = strs[0];
+        String lastWord = strs[ strs.length - 1 ];
+
+        while (i < firstWord.length()){
+            if (firstWord.charAt(i) == lastWord.charAt(i)) i++;
+            else break;
+        }
+        if (i == 0) return "";
+        return firstWord.substring(0,i);
+    }
+
+}
+/*
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+ */
