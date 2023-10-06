@@ -5,24 +5,24 @@ import java.util.Arrays;
 public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
 
-        int[] arr = {0,1,0,1,1,1,1,2,2,3,3,4,4,4,5,5};
+        int[] arr = {0,0,1,1,1,1,2,2,3,3,4,4,4,5,5};
         System.out.println(removeDuplicates(arr));
     }
 
     /**
-     * // I retrieve each element and checks with previous (i-1) element. If they are some it continues. If not it puts element in head of the array. Head of the array is kept tracked by j
+     * // I retrieve each element and checks with previous (i-1) element. If they are same it continues. If not it puts element in head of the array. Head of the array is kept tracked by j
      */
 
     public static int removeDuplicates(int[] nums) {
-        int j = 1;
+        int unique = 1;
         for(int i = 1; i < nums.length; i++){
-            if(nums[i] != nums[i - 1]){
-                nums[j] = nums[i];
-                j++;
+            if(nums[i] != nums[i-1]){
+                nums[unique] = nums[i];
+                unique++;
             }
         }
         System.out.println(Arrays.toString(nums));
-        return j;
+        return unique;
     }
 
 

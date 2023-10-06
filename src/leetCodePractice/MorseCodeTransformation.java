@@ -1,13 +1,29 @@
 package leetCodePractice;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class MorseCodeTransformation  {
 
     public int uniqueMorseRepresentations(String[] words) {
         String[] morseCodes = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
 
-        HashSet<String> transformations = new HashSet<>();
+        Set<String> transformations = new HashSet<>();
+
+        for (String word : words) {
+            String morse = "";
+            for (char ch : word.toCharArray()) {
+                morse += morseCodes[ch-'a'];
+            }
+            transformations.add(morse);
+        }
+        return transformations.size();
+    }
+
+    public int uniqueMorseRepresentations2(String[] words) {
+        String[] morseCodes = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+
+        Set<String> transformations = new HashSet<>();
 
         for (String word : words) {
             StringBuilder transformation = new StringBuilder();
