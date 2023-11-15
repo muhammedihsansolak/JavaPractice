@@ -5,12 +5,24 @@ public class SumOfDigits_DigitalRoot {
     public static void main(String[] args) {
 
         System.out.println(digital_root(132189));
+        System.out.println(digital_root2(132189));
+        System.out.println(digital_root3(132189));
 
     }
 
     public static int digital_root(int n) {
 
         if ((n+"").length() == 1) return n;
+        String str = n + "";
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            sum += Integer.parseInt(str.charAt(i)+"");
+        }
+        return digital_root(sum);
+    }
+    public static int digital_root3(int n) {
+
+        if (n < 10) return n;
         String str = n + "";
         int sum = 0;
         for (int i = 0; i < str.length(); i++) {
